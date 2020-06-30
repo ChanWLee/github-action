@@ -1,5 +1,10 @@
 workflow "New workflow" {
-  on = "pull_request"
+  on "push" {
+    branches = "master"
+  }
+  on "pull_request" {
+    branches = "master"
+  }
   resolves = ["Deploy"]  # list로 여러 action을 지정하면 병렬로 실행됨
 }
 
